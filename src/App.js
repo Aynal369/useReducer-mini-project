@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import ProductProvider from "./context/ProductProvider";
+import routes from "./routes/routes";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HelmetProvider>
+      <ProductProvider>
+        <RouterProvider router={routes} />
+      </ProductProvider>
+    </HelmetProvider>
   );
 }
 
